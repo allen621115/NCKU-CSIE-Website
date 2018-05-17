@@ -1,8 +1,10 @@
+global.projectRoot = __dirname;
+
 // including public module
 const express = require( 'express' );
-const config = require( './settings/server/config' );
-const routes = require( './routes/urls' );
-const apis = require( './apis/urls' );
+
+const config = require( `${ global.projectRoot }/settings/server/config` );
+const routes = require( `${ global.projectRoot }/routes/urls` );
 
 // start server
 const server = express();
@@ -12,7 +14,9 @@ const server = express();
 
 server.listen( config.port );
 
-// set render engine
-server.set( 'view engine', 'pug' );
-server.use( config.root, routes );
-server.use( config.static, express.static( 'static/dist' ) );
+// set static route
+server.use( '/css', express.static( `${ global.projectRoot }/static/dist/css` ) );
+server.use( '/js', express.static( `${ global.projectRoot }/static/dist/js` ) );
+
+// set dynamic route
+server.use( '/', routes );

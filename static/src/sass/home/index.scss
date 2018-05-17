@@ -1,0 +1,8 @@
+@import '../components/common/reset';
+@import '../components/common/header';
+@import '../components/common/footer';
+
+body{
+  @include header;
+  @include footer;
+}
