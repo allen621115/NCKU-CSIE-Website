@@ -1,43 +1,44 @@
 @import './reset';
 @import './nav';
+
+$pc-media: 960px;
+$phone-media: 480px;
+@mixin pc () {
+  @media all and (min-width: $pc-media) {
+    @content;
+  }
+}
+@mixin phone () {
+  @media all and (max-width: $phone-media) {
+    @content;
+  }
+}
 @mixin header{
   $font-color: #f8f8f2;
 
-  //phone
-  @media screen and (max-width:480px) {
-
-    .headerSec{
+  .headerSec{
+    @include pc{
+      width: 1920px;
+      height: 300px;
+    }
+    @include phone{
       width: 375px;
       height: 20px;
-      background-color: #262e3e;
-      padding: 2rem 0 0;
-      display: grid;
-      grid-template-rows: auto auto auto auto;
-      grid-template-columns: 4rem 50% auto;
-      overflow: hidden;
     }
+    background-color: #262e3e;
+    padding: 0;
+    display: grid;
+    grid-template-rows: .33fr .33fr .34fr;
+    grid-template-columns: 4rem 50% auto;
   }
 
-  //computer
-  @media screen and (min-width:960px) {
-
-    .headerSec{
-      width: 1921px;
-      height: 272px;
-      background-color: #262e3e;
-      padding: 2rem 0 0;
-      display: grid;
-      grid-template-rows: auto auto auto auto;
-      grid-template-columns: 4rem 50% auto;
-      overflow: hidden;
-    }
-  }
+    
 
   .headerSec__csieTitle{
     margin-left: 2rem;
     justify-self: start;
     display: grid;
-    grid-row: 1 / span 2;
+    grid-row: 1 ;
     grid-column: 1 / span 2;
   }
 
@@ -63,65 +64,43 @@
     border-radius: 50%;
   }
 
-  .headerSec__Chinese{
+  .headerSec__csietitle--Chinese{
     grid-row: 1;
     grid-column: 2;
-    font-size: 1.7rem;
+    font-size: 1rem;
     font-weight: normal;
     color: $font-color ;
     justify-self: start;
     align-self: end;
   }
 
-  .headerSec__English{
+  .headerSec__csietitle--English{
     grid-row: 2;
     grid-column: 2;
-    font-size: 1.3rem;
+    font-size: .7rem;
     color: $font-color ;
     justify-self: start;
-  }
-
-  .headerSec__drop{
-    grid-row: row 4;
-    grid-column: 1 / span 3;
-    width: 100%;
-    display: none;
-    text-align: right;
-    justify-self: end;
-    margin: 0;
-    padding: 0 2rem 0 0;
-    background-color: #00c3d0 ;
-
-    a{
-      display: inline-block;
-      padding: .2rem 1.2rem;
-      height: 100%;
-
-      &:hover{
-        background-color: #008891 ;
-      }
-    }
   }
 
   .headerSec__input{
     grid-row: 1;
     grid-column: 3;
-    width: 40%;
-    height: 3rem;
-    justify-self: end;
-    align-self: end;
+    width: 30%;
+    height: .5rem;
     background-color: rgba(0, 0, 0, 0);
-    margin-right: 3.5rem;
+    margin-right: 3rem;
+    margin-top: .5rem;
     border: .08rem solid #f8f8f2;
     border-radius: .5rem;
-    padding: 1rem;
+    padding: .7rem;
     color: #f8f8f2;
-    font-size: 1.3rem;
+    font-size: .4rem;
     outline: none;
+    justify-self: stretch;
 
     &::placeholder{
       color: #f8f8f2;
-      font-size: 1.3rem;
+      font-size: 1rem;
     }
 
     &+a{
@@ -134,20 +113,63 @@
     }
   }
 
-  a{
-    font-size: 1.5rem;
+  .user{
+    font-size: 10px;
     color: $font-color ;
-    text-align: center;
-    text-decoration: none;
+    grid-row: 2;
+    grid-column: 3;
   }
 
-  .navbar{
-    grid-row: row 3;
-    grid-column: 1 / span 3;
+  .dropdown{
+    grid-row: 3;
+    grid-column: 2 / span 3;
     overflow: hidden;
-    margin: 3rem 2rem 0 0;
-    padding: 0;
+    margin: 0;
+    padding-bottom: 2rem;
     justify-self: end;
     align-self: stretch;
+  }
+
+  .dropdown__navbar{
+    display: inline-block;
+    color: #f8f8f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+
+    &:hover{
+      background-color: #00c3d0 ;      
+    }
+  }
+
+  .dropdown__btn{
+    display: inline-block;
+
+    &:hover{
+      background-color: #00c3d0 ;
+      display: block;
+    }
+  }
+
+  .dropdown__content{
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,.2);
+    z-index: 1;
+
+    a{
+      color: #262e3e;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+
+      &:hover{
+        background-color: #008891 ;
+        display: block;
+      }
+    }
   }
 }
