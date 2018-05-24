@@ -1,8 +1,10 @@
 const express = require( 'express' );
 
-// const announcement = require( './announcement' );
-// const config = require( '../settings/server/config' );
-const api = new express.Router();
+const teacher = require( './teacher' );
 
+const apis = express.Router();
 
-module.exports = api;
+// Resolve URL /api/about
+apis.use( '/teacher', teacher );
+
+module.exports = apis;
