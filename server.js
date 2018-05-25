@@ -9,7 +9,7 @@ const routes = require( `${ global.projectRoot }/routes/urls` );
 // Start server
 const server = express();
 
-// server.use( bodyParser.json() );
+// Server.use( bodyParser.json() );
 // server.use( bodyParser.urlencoded( { extended: true } ) );
 
 server.listen( config.port );

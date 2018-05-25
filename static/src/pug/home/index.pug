@@ -1,15 +1,10 @@
 doctype html
 html
   head
-    link(rel='stylesheet' type='text/css' href=`/css/home/index.css`)
+    link(rel='stylesheet', type='text/css', href=`/css/home/index.css`)
     title ncku csie
   body
     include /components/common/header.pug
     +header
-    h1 welcome to ncku csie
-    section
-      p#time!= 'time:' + time
-      p#tag!= 'tag:' + tag
-      p#announcement!= 'announce_id:' + announcement_id
     include /components/common/footer.pug
     +footer

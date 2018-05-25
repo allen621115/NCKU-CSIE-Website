@@ -3,47 +3,51 @@
 $pc-media: 960px;
 $phone-media: 480px;
 @mixin pc () {
-  @media all and (min-width: $pc-media) {
+  @media all and ( min-width: $pc-media ) {
     @content;
   }
 }
 @mixin phone () {
-  @media all and (max-width: $phone-media) {
+  @media all and ( max-width: $phone-media ) {
     @content;
   }
 }
-@mixin footer{
+@mixin footer {
 
-  .footer{
-    @include pc{
+  .footer {
+    @include pc() {
       width: 1920px;
       height: 340px;
       padding: 5vh 7vw;
       font-size: 25px;
-      grid-template-columns: .5fr .5fr;
-      grid-template-rows: .25fr .25fr .25fr .25fr;
+      grid-template: {
+        columns: .5fr .5fr;
+        rows: .25fr .25fr .25fr .25fr;
+      }
     }
-    @include phone{
+    @include phone() {
       width: 375px;
       height: 138.83px;
       padding: 5vh 7vw;
       font-size: 10px;
-      grid-template-columns: .75fr .25fr;
-      grid-template-rows: .25fr .25fr .25fr .25fr;
+      grid-template: {
+        columns: .75fr .25fr;
+        rows: .25fr .25fr .25fr .25fr;
+      }
     }
     display: grid;
     background-color: #262e3e;
     grid-template-areas: 'first-1 first-2' 'second-1 second-2' 'third-1 third-2' 'forth-1 forth-2';
   }
 
-  .footer__copyright{
+  .footer__copyright {
     grid-area: first-1;
     padding: 1vh;
     justify-self: start;
     color: #fefefe;
   }
 
-  .footer__address{
+  .footer__address {
     grid-area: second-1;
     padding: 1vh;
     justify-self: start;
@@ -51,20 +55,20 @@ $phone-media: 480px;
     
     a{
       color: #fefefe ;
-      @include phone{
+      @include phone() {
         font-size: 10px;
       }
     }
   }
 
-  .footer__phone{
+  .footer__phone {
     grid-area: third-1;
     padding: 1vh;
     justify-self: start;
     color: #fefefe;
   }
 
-  .footer__connectus{
+  .footer__connectus {
     grid-area: forth-1;
     padding: 1vh;
     justify-self: start;
@@ -74,16 +78,23 @@ $phone-media: 480px;
     }
   }
 
-  .footer__img{
+  .footer__img {
     grid-area: third-2;
     padding: 1vh;
     justify-self: end;
   }
 
-  .footer__views{
-    grid-area: forth-2;
-    padding: 1vh;
-    justify-self: end;
-    color: #fefefe;
+  .footer__views {
+    @include pc() {
+      grid-area: forth-2;
+      padding: 1vh;
+      justify-self: end;
+      color: #fefefe;
+    }
+    @include phone() {
+      width: 20.86px;
+      height: 22.76px;
+      z-index: 1;
+    }
   }
 }
