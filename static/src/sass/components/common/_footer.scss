@@ -37,18 +37,18 @@ $phone-media: 480px;
     }
     display: grid;
     background-color: #262e3e;
-    grid-template-areas: 'first-1 first-2' 'second-1 second-2' 'third-1 third-2' 'forth-1 forth-2';
+    grid-template-areas: 'copyright .' 'address .' 'phone .' 'connectus views';
   }
 
   .footer__copyright {
-    grid-area: first-1;
+    grid-area: copyright;
     padding: 1vh;
     justify-self: start;
     color: #fefefe;
   }
 
   .footer__address {
-    grid-area: second-1;
+    grid-area: address;
     padding: 1vh;
     justify-self: start;
     color: #fefefe;
@@ -62,14 +62,14 @@ $phone-media: 480px;
   }
 
   .footer__phone {
-    grid-area: third-1;
+    grid-area: phone;
     padding: 1vh;
     justify-self: start;
     color: #fefefe;
   }
 
   .footer__connectus {
-    grid-area: forth-1;
+    grid-area: connectus;
     padding: 1vh;
     justify-self: start;
     color: #fefefe;
@@ -86,7 +86,7 @@ $phone-media: 480px;
 
   .footer__views {
     @include pc() {
-      grid-area: forth-2;
+      grid-area: views;
       padding: 1vh;
       justify-self: end;
       color: #fefefe;
