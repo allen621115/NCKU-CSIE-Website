@@ -97,7 +97,7 @@ gulp.task(
     ( done ) => {
         gulp.watch(
             config.lint.src,
-            gulp.series( 'lint:css', 'build:css' )
+            gulp.series( 'build:css' )
         );
         done();
     }
