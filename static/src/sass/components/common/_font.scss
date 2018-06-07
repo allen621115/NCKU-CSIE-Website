@@ -17,6 +17,16 @@
   }
   letter-spacing: .0625rem;
 }
+@mixin font__load--NotoSans() {
+  @import url('https://fonts.googleapis.com/css?family=Noto+Sans');
+}
+@mixin font__family--NotoSans() {
+  font: {
+    family: 'Noto Sans', arial, helvetica, sans-serif;
+    weight: 100;
+  }
+  letter-spacing: .0625rem;
+}
 
 :root {
   --font__family--default: 'Arial', 'Noto Sans TC', 'Microsoft JhengHei';

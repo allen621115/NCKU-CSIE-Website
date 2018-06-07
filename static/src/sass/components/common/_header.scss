@@ -1,5 +1,10 @@
+@import 'components/common/font';
+@include font__load--NotoSansTC();
+@include font__load--NotoSans();
+
 $header-pc-size: 960px;
 $header-phone-size: 480px;
+
 @mixin header-pc () {
   @media screen and ( min-width: $header-pc-size ) {
     @content;
@@ -13,9 +18,11 @@ $header-phone-size: 480px;
 @mixin header () {
   .header {
     $font-color: rgba(0, 0, 0, 0.87);
-    background-color:#ffffff ;
-    padding: 0;
+    background-color:#ffffff;
     width: 100%;
+    height: 150px;
+    position: relative;
+    z-index: 1;
     @include header-phone() {
       height: 78px;
       display: grid;
@@ -28,11 +35,10 @@ $header-phone-size: 480px;
       }
     }
     @include header-pc () {
-      height: 14%;
       display: grid;
       grid-template: {
-        rows: .3fr .3fr .3fr ;
-        columns: 1fr 3fr 4fr 1fr 1fr ;
+        rows: .3fr .2fr .2fr ;
+        columns: .08fr .33fr auto .07fr .07fr ;
         areas: 
         '. . . . country '
         'img title1 navbar user search'
@@ -47,11 +53,9 @@ $header-phone-size: 480px;
       @include header-pc() {
         display: grid;
         grid-area: img;
-        width: 1rem;
-        height: 1rem;
         background-color: #000065;
         border-radius: 50%;
-        margin-left: 2rem;
+        margin-left: .8rem;
         margin-top: .2rem;
         }
     }
@@ -66,9 +70,9 @@ $header-phone-size: 480px;
         font-family: Arial, Regular;
       }
       @include header-pc() {
+        @include font__family--NotoSansTC();
         grid-area: title1;
-        font-size: .5rem;
-        font-family: NotoSansCJKtc;
+        font-size: .75rem;
         font-weight: normal;
         font-style: normal;
         font-stretch: normal;
@@ -82,7 +86,6 @@ $header-phone-size: 480px;
       @include header-phone() {
         grid-area: title2;
         font-size: .33rem;
-        font-family: NotoSans;
         font-weight: normal;
         font-style: normal;
         font-stretch: normal;
@@ -90,10 +93,29 @@ $header-phone-size: 480px;
         letter-spacing: normal;
       }
       @include header-pc() {
+        @include font__family--NotoSans();
         grid-area: title2;
-        font-size: 16px;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        font-size: .5rem;
       }
-      //justify-self: start;
+    }
+
+    &__country{
+      @include header-phone() {
+        display: none;
+      }
+      @include header-pc() {
+        display: grid;
+        grid-area: country;
+        margin-top: .5rem;
+        background-color: #33325e ;
+        border-radius: 50%;
+        margin-left: 1rem;
+      }
     }
    
     &__input {
@@ -105,14 +127,13 @@ $header-phone-size: 480px;
         border-radius: 50%;
         position: relative;
         top:30px;
+        background-color: #33325e ;
       }
       @include header-pc() {
         display: grid;
         grid-area: search;
-        width: 1rem;
-        height: 1rem;
         margin-top: .5rem;
-        margin-left: 2.5rem;
+        margin-left: 1rem;
         border-radius: 50%;
         background-color: #33325e ;
       }
@@ -125,12 +146,10 @@ $header-phone-size: 480px;
       @include header-pc() {
         display: grid;
         grid-area: user;
-        width: 1rem;
-        height: 1rem;
         margin-top: .5rem;
         background-color: #33325e ;
         border-radius: 50%;
-        margin-left: 3rem;
+        margin-left: 2rem;
       }
     }
 
@@ -144,6 +163,7 @@ $header-phone-size: 480px;
         background-color: #f8f8f2 ;
         position: relative;
         top:30px;
+        background-color: #33325e ;
 
         &:focus {
           .dropdown {
@@ -204,22 +224,24 @@ $header-phone-size: 480px;
       @include header-pc() {
         position: absolute;
         width: 100%;
-        height: 80%;
-        font-family: NotoSansCJKtc;
+        height: 100%;
         font-weight: bold;
         font-style: normal;
         font-stretch: normal;
-        line-height: 1.5;
+        margin-top:  1rem;;
         letter-spacing: normal;
         color: #adacad;
-        font-size: .4rem;
+        font-size: .5rem;
       
         li{
           float:left ;
+          text-align: center;
         }
       
         &__navbar{
           display: inline-block;
+          height: 66.6667%;
+          width: 6.0020%;
 
           &:hover {
             .dropdown__content {
@@ -229,17 +251,23 @@ $header-phone-size: 480px;
         }
 
         &__btn {
-          width: 2rem;
-          height: 1rem;
-          display: inline-block;
-          color: #adacad;
+          @include font__family--NotoSansTC();
+          width: 100%;
+          height:54%;
+          font-weight: bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.5;
+          letter-spacing: normal;
+          font-size: .5rem;
           text-align: center;
           text-decoration: none;
-          padding-top: .5rem;
+          display: inline-block;
+          color: #adacad;
+          background-color: #ffffff ;
 
           &:hover {
-              border-bottom: 10px;
-              border-color: #00c3d0 ;
+              background-color:rgba(196, 196, 196, 0.3);
             }
         }
         
@@ -247,24 +275,32 @@ $header-phone-size: 480px;
             display: none;
             list-style-type:none;
             width: 200%;
-            height: 1.5rem;
+            height: 81%;
             background-color: #33325e;
             white-space: nowrap;
             position: absolute;
             margin-left: -40rem;
+            margin-top: .6rem;
             box-shadow: 0 8px 8px 0 rgba(0,0,0,.2);
             z-index: 1;
+            padding-top: .4rem;
           
             a{
+              @include font__family--NotoSansTC();
+              font-weight: bold;
+              font-style: normal;
+              font-stretch: normal;
+              line-height: 1.5;
+              letter-spacing: normal;             
               color: white;
               text-decoration: none;
               text-align: center;
-              font-family: Arial, Regular;
-              font-size: .4rem;
+              white-space:nowrap;
+              font-size: .5rem;
               margin-left: .5rem;
 
               &:hover{
-                padding: .4rem ;
+                padding: 0.6784% 0.6784% 0.3914% 0.6784% ;
                 background-color: rgba(255, 255, 255, 0.2);
               }
             }
