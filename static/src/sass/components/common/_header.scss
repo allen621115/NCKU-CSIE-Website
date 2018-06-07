@@ -12,8 +12,8 @@ $header-phone-size: 480px;
 }
 @mixin header () {
   .header {
-    $font-color: #f8f8f2;
-    background-color: #262e3e;
+    $font-color: rgba(0, 0, 0, 0.87);
+    background-color:#ffffff ;
     padding: 0;
     width: 100%;
     @include header-phone() {
@@ -28,16 +28,15 @@ $header-phone-size: 480px;
       }
     }
     @include header-pc () {
-      height: 25%;
+      height: 14%;
       display: grid;
       grid-template: {
-        rows: .25fr .25fr .25fr .25fr ;
-        columns: .03fr .5fr .5fr;
+        rows: .3fr .3fr .3fr ;
+        columns: 1fr 3fr 4fr 1fr 1fr ;
         areas: 
-        '. . search'
-        'img title1 user'
-        'img title2 user'
-        '. navbar navbar';
+        '. . . . country '
+        'img title1 navbar user search'
+        'img title2 navbar user search';
       }
     }
 
@@ -48,13 +47,12 @@ $header-phone-size: 480px;
       @include header-pc() {
         display: grid;
         grid-area: img;
-        width: 80px;
-        height: 72px;
-        padding-top: 3.5rem;
-        margin-right: 10px;
-        margin-left: 30px;
-        background: $font-color ;
+        width: 1rem;
+        height: 1rem;
+        background-color: #000065;
         border-radius: 50%;
+        margin-left: 2rem;
+        margin-top: .2rem;
         }
     }
    
@@ -69,22 +67,31 @@ $header-phone-size: 480px;
       }
       @include header-pc() {
         grid-area: title1;
-        font-size: 1rem;
+        font-size: .5rem;
+        font-family: NotoSansCJKtc;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.33;
+        letter-spacing: normal;
       }
-      //justify-self: start;
-      //align-self: end;
     }
    
     &__EnglishTitle{
       color: $font-color ;
       @include header-phone() {
         grid-area: title2;
-        font-size: 9px;
-        font-family: Arial, Regular;
+        font-size: .33rem;
+        font-family: NotoSans;
+        font-weight: normal;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
       }
       @include header-pc() {
         grid-area: title2;
-        font-size: .7rem;
+        font-size: 16px;
       }
       //justify-self: start;
     }
@@ -100,26 +107,14 @@ $header-phone-size: 480px;
         top:30px;
       }
       @include header-pc() {
-        display: block;
+        display: grid;
         grid-area: search;
-        width: 406px;
-        height: 48px;
-        background-color: rgba(0, 0, 0, 0);
-        margin-right: 3rem;
+        width: 1rem;
+        height: 1rem;
         margin-top: .5rem;
-        border: 1px solid #f8f8f2;
-        border-radius: .5rem;
-        padding: 5px;
-        color: #f8f8f2;
-        font-size: .4rem;
-        outline: none;
-        justify-self: end;
-    
-        &::placeholder {
-          color: #f8f8f2;
-          font-size: 21px;
-          font-family: Arial, Regular;
-        }
+        margin-left: 2.5rem;
+        border-radius: 50%;
+        background-color: #33325e ;
       }
     }
    
@@ -128,46 +123,31 @@ $header-phone-size: 480px;
         display: none;
       }
       @include header-pc() {
-        display: block;
-        justify-self: end;
-        font-size: 30px;
-        color: $font-color ;
+        display: grid;
         grid-area: user;
+        width: 1rem;
+        height: 1rem;
+        margin-top: .5rem;
+        background-color: #33325e ;
+        border-radius: 50%;
+        margin-left: 3rem;
       }
     }
-    .dropdown{
-      font-size: 24px;
 
+    &__btn{
       @include header-phone() {
+        display: grid;
         grid-area: navbtn ;
         width: 21.21px;
         height: 20.01px;
         border-radius: 50%;
+        background-color: #f8f8f2 ;
         position: relative;
         top:30px;
 
-        &__navbar{
-          display: inline-block;
-
-          &:active {
-            .dropdown__content {
-              display:block ;
-            }
-          }
-        }
-
-        &__content{
-          display: none;
-          width: 100%;
-          height: 100%;
-          background-color: #262e3e ;
-
-          a{
-            color: #f8f8f2 ;
-            padding: 9px 9px 9px 9px ;
-            font-size: 18px;
-            font-family: Arial, Regular;
-            
+        &:focus {
+          .dropdown {
+            display: block ;
           }
         }
       }
@@ -176,13 +156,66 @@ $header-phone-size: 480px;
         width:100%;
         list-style-type: none;
         overflow: hidden;
-        margin: 0;
-        padding: 0;
-        color: #f8f8f2 ;
-        background-color: rgba(0, 0, 0, 0);
+        display: block;
+        height: 0;
+      }
+    }
+    .dropdown{
+      @include header-phone() {
+        display: none ;
+        width: 100vw ;
+        height: 100vh ;
+        white-space: nowrap;
+        position: fixed;
+        right: 0;
+        top: 0;
+        font-size: 18px;
+        font-family: Arial, Regular ;
+        background-color: #33325e;
+
+        &__navbar{
+          opacity: 50%;
+          color: #f8f8f2 ;
+          padding-top: 30px;
+          z-index: 3;
+          text-align: center;
+        }
+
+        &__btn{
+          opacity: 50%;
+          &:focus {
+            .dropdown__content{
+              display: block;
+            }
+          }
+        }
+
+        &__content{
+          display: none;
+          z-index: 2;
+          a{
+            color: white;
+            text-decoration: none;
+            text-align: center;
+            font-family: Arial, Regula;
+          }
+        }
+      }
+      @include header-pc() {
+        position: absolute;
+        width: 100%;
+        height: 80%;
+        font-family: NotoSansCJKtc;
+        font-weight: bold;
+        font-style: normal;
+        font-stretch: normal;
+        line-height: 1.5;
+        letter-spacing: normal;
+        color: #adacad;
+        font-size: .4rem;
       
         li{
-          float:right ;
+          float:left ;
         }
       
         &__navbar{
@@ -196,13 +229,13 @@ $header-phone-size: 480px;
         }
 
         &__btn {
-          width: 154px;
-          height: 43px;
+          width: 2rem;
+          height: 1rem;
           display: inline-block;
-          color: white;
+          color: #adacad;
           text-align: center;
-          padding: 14px 16px 0 0;
           text-decoration: none;
+          padding-top: .5rem;
 
           &:hover {
               border-bottom: 10px;
@@ -212,26 +245,27 @@ $header-phone-size: 480px;
         
         &__content{
             display: none;
-            width:100%;
-            height: 52px;
-            background-color: #00c3d0;
+            list-style-type:none;
+            width: 200%;
+            height: 1.5rem;
+            background-color: #33325e;
             white-space: nowrap;
             position: absolute;
-            right: 0;
+            margin-left: -40rem;
             box-shadow: 0 8px 8px 0 rgba(0,0,0,.2);
             z-index: 1;
           
             a{
               color: white;
-              padding: 10px 10px;
               text-decoration: none;
-              float: right;
               text-align: center;
               font-family: Arial, Regular;
-              font-size: 24px;
+              font-size: .4rem;
+              margin-left: .5rem;
 
               &:hover{
-                background: #008891 ;
+                padding: .4rem ;
+                background-color: rgba(255, 255, 255, 0.2);
               }
             }
         }
