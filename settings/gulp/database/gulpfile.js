@@ -17,12 +17,12 @@ const config = require( `${ projectRoot }/settings/gulp/database/config` );
 gulp.task(
     'pre-build:database',
     () => gulp.src( config.src )
-        .pipe( rename(
-            ( file ) => {
-                file.extname = '';
-            }
-        ) )
-        .pipe( gulp.dest( config.dest ) )
+    .pipe( rename(
+        ( file ) => {
+            file.extname = '';
+        }
+    ) )
+    .pipe( gulp.dest( config.dest ) )
 );
 
 /**
@@ -39,14 +39,14 @@ gulp.task(
             since: gulp.lastRun( 'lint:database' ),
         }
     )
-        .pipe( plumber() )
-        .pipe( eslint( {
-            configFile: config.lint.rule,
-            fix:        true,
-        } ) )
-        .pipe( eslint.format() )
-        .pipe( debug() )
-        .pipe( gulp.dest( config.lint.dest ) )
+    .pipe( plumber() )
+    .pipe( eslint( {
+        configFile: config.lint.rule,
+        fix:        true,
+    } ) )
+    .pipe( eslint.format() )
+    .pipe( debug() )
+    .pipe( gulp.dest( config.lint.dest ) )
 );
 
 

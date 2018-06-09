@@ -24,23 +24,23 @@ gulp.task(
             since: gulp.lastRun( 'lint:html' ),
         }
     )
-        .pipe( plumber() )
-        .pipe( puglint() )
-        .pipe( puglint.reporter() )
-        .pipe( debug() )
+    .pipe( plumber() )
+    .pipe( puglint() )
+    .pipe( puglint.reporter() )
+    .pipe( debug() )
 );
 
 function buildHTML ( src, dest, data ) {
     return async () => {
         gulp.src( src )
-            .pipe( plumber() )
-            .pipe(
-                pug( {
-                    basedir: config.lint.dest,
-                    data:    await data(),
-                } )
-            )
-            .pipe( gulp.dest( dest ) );
+        .pipe( plumber() )
+        .pipe(
+            pug( {
+                basedir: config.lint.dest,
+                data:    await data(),
+            } )
+        )
+        .pipe( gulp.dest( dest ) );
     };
 }
 

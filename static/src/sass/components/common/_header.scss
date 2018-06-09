@@ -4,7 +4,6 @@
 
 $header-pc-size: 960px;
 $header-phone-size: 480px;
-
 @mixin header-pc () {
   @media screen and ( min-width: $header-pc-size ) {
     @content;
@@ -17,12 +16,12 @@ $header-phone-size: 480px;
 }
 @mixin header () {
   .header {
-    $font-color: rgba(0, 0, 0, 0.87);
-    background-color:#ffffff;
+    $font-color: rgba( 0, 0, 0, .87 );
+    background-color: #ffffff;
     width: 100%;
     height: 150px;
     position: relative;
-    z-index: 1;
+    
     @include header-phone() {
       height: 78px;
       display: grid;
@@ -30,98 +29,102 @@ $header-phone-size: 480px;
         rows: .5fr .5fr;
         columns: .7fr .15fr .15fr;
         areas:
-        'title1 search navbtn'
-        'title2 . .';
+          'header__Chinesetitle header__search header__navbtn'
+          'header__languagetitle . .';
       }
     }
     @include header-pc () {
       display: grid;
       grid-template: {
         rows: .3fr .2fr .2fr ;
-        columns: .08fr .33fr auto .07fr .07fr ;
+        columns: .08fr .33fr .52fr .07fr .07fr ;
         areas: 
-        '. . . . country '
-        'img title1 navbar user search'
-        'img title2 navbar user search';
+          '. . . . header__language '
+          'header__logo header__title-chinese header__navbar header__login header__search'
+          'header__logo header__title-language header__navbar header__login header__search';
       }
     }
 
-    &__img {
+    &__logo {
       @include header-phone() {
         display: none;
       }
       @include header-pc() {
         display: grid;
-        grid-area: img;
-        background-color: #000065;
+        grid-area: header__logo;
+        object-fit: contain;
+        width: 60px;
+        height: 60px;
         border-radius: 50%;
         margin-left: .8rem;
         margin-top: .2rem;
-        }
+      }
     }
    
-    &__ChineseTitle {
+    &__title {
+      color: $font-color ;
       font-weight: normal;
-      color: $font-color ;
-      @include header-phone() {
-        padding-top: 20px;
-        grid-area: title1;
-        font-size: 18px;
-        font-family: Arial, Regular;
+      font-style: normal;
+      font-stretch: normal;
+      letter-spacing: normal;
+      &--chinese{
+        @include header-phone() {
+          padding-top: 20px;
+          grid-area: title1;
+          font-size: 18px;
+          font-family: Arial, Regular;
+        }
+        @include header-pc() {
+          @include font__family--NotoSansTC();
+          grid-area: header__title-chinese;
+          font-size: .75rem;
+          line-height: 1.33;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          letter-spacing: normal;
+        }
       }
-      @include header-pc() {
-        @include font__family--NotoSansTC();
-        grid-area: title1;
-        font-size: .75rem;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.33;
-        letter-spacing: normal;
-      }
-    }
-   
-    &__EnglishTitle{
-      color: $font-color ;
-      @include header-phone() {
-        grid-area: title2;
-        font-size: .33rem;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.5;
-        letter-spacing: normal;
-      }
-      @include header-pc() {
-        @include font__family--NotoSans();
-        grid-area: title2;
-        font-weight: normal;
-        font-style: normal;
-        font-stretch: normal;
-        line-height: 1.5;
-        letter-spacing: normal;
-        font-size: .5rem;
+    
+      &--language{
+        @include header-phone() {
+          grid-area: header__languagetitle;
+          font-size: .33rem;
+          line-height: 1.5;
+        }
+        @include header-pc() {
+          @include font__family--NotoSans();
+          grid-area: header__title-language;
+          line-height: 1.5;
+          font-size: .5rem;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          letter-spacing: normal;
+        }
       }
     }
 
-    &__country{
+    &__language{
       @include header-phone() {
         display: none;
       }
       @include header-pc() {
         display: grid;
-        grid-area: country;
+        grid-area: header__language;
         margin-top: .5rem;
         background-color: #33325e ;
         border-radius: 50%;
         margin-left: 1rem;
+        width: 20px;
+        height: 20px;
       }
     }
    
-    &__input {
+    &__search {
       @include header-phone() {
         display: block;
-        grid-area: search ;
+        grid-area: header__search ;
         width: 21.21px;
         height: 20.01px;
         border-radius: 50%;
@@ -131,32 +134,36 @@ $header-phone-size: 480px;
       }
       @include header-pc() {
         display: grid;
-        grid-area: search;
+        grid-area: header__search;
         margin-top: .5rem;
         margin-left: 1rem;
         border-radius: 50%;
         background-color: #33325e ;
+        width: 35px;
+        height: 35px;
       }
     }
    
-    &__user{
+    &__login{
       @include header-phone() {
         display: none;
       }
       @include header-pc() {
         display: grid;
-        grid-area: user;
+        grid-area: header__login;
         margin-top: .5rem;
         background-color: #33325e ;
         border-radius: 50%;
         margin-left: 2rem;
+        width: 35px;
+        height: 35px;
       }
     }
 
-    &__btn{
+    .header__navigation-bar.navogation-bar{
       @include header-phone() {
         display: grid;
-        grid-area: navbtn ;
+        grid-area: header__navbtn ;
         width: 21.21px;
         height: 20.01px;
         border-radius: 50%;
@@ -172,7 +179,7 @@ $header-phone-size: 480px;
         }
       }
       @include header-pc() {
-        grid-area: navbar;
+        grid-area: header__navbar;
         width:100%;
         list-style-type: none;
         overflow: hidden;
@@ -180,13 +187,14 @@ $header-phone-size: 480px;
         height: 0;
       }
     }
-    .dropdown{
+
+    .navigation-bar__dropdown.dropdown{
       @include header-phone() {
         display: none ;
         width: 100vw ;
         height: 100vh ;
         white-space: nowrap;
-        position: fixed;
+        position: absolute;
         right: 0;
         top: 0;
         font-size: 18px;
@@ -203,6 +211,7 @@ $header-phone-size: 480px;
 
         &__btn{
           opacity: 50%;
+
           &:focus {
             .dropdown__content{
               display: block;
@@ -210,9 +219,10 @@ $header-phone-size: 480px;
           }
         }
 
-        &__content{
+        &__list{
           display: none;
           z-index: 2;
+
           a{
             color: white;
             text-decoration: none;
@@ -241,10 +251,10 @@ $header-phone-size: 480px;
         &__navbar{
           display: inline-block;
           height: 66.6667%;
-          width: 6.0020%;
+          width: 6.002%;
 
           &:hover {
-            .dropdown__content {
+            .navigation-bar__dropdown.dropdown__list {
               display:block ;
             }
           }
@@ -267,43 +277,46 @@ $header-phone-size: 480px;
           background-color: #ffffff ;
 
           &:hover {
-              background-color:rgba(196, 196, 196, 0.3);
-            }
+            background-color:rgba(196, 196, 196, .3);
+          }
         }
         
-        &__content{
-            display: none;
-            list-style-type:none;
-            width: 200%;
-            height: 81%;
-            background-color: #33325e;
-            white-space: nowrap;
-            position: absolute;
-            margin-left: -40rem;
-            margin-top: .6rem;
-            box-shadow: 0 8px 8px 0 rgba(0,0,0,.2);
-            z-index: 1;
-            padding-top: .4rem;
-          
-            a{
-              @include font__family--NotoSansTC();
-              font-weight: bold;
-              font-style: normal;
-              font-stretch: normal;
-              line-height: 1.5;
-              letter-spacing: normal;             
-              color: white;
-              text-decoration: none;
-              text-align: center;
-              white-space:nowrap;
-              font-size: .5rem;
-              margin-left: .5rem;
+        &__list{
+          display: none;
+          list-style-type:none;
+          width: 200%;
+          height: 81px;
+          background-color: #33325e;
+          white-space: nowrap;
+          position: absolute;
+          margin-left: -100%;
+          margin-top: 1.455%;
+          box-shadow: 0 8px 8px 0 rgba(0,0,0,.2);
+          z-index: 1;
+          padding-top: 1%;
+        }
 
-              &:hover{
-                padding: 0.6784% 0.6784% 0.3914% 0.6784% ;
-                background-color: rgba(255, 255, 255, 0.2);
-              }
-            }
+        &__item{
+          @include font__family--NotoSansTC();
+          display: inline-block;
+          width: 4%;
+          height: 80%;
+          padding-top: .5%;
+          font-weight: bold;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: 1.5;
+          letter-spacing: normal;             
+          color: white;
+          text-decoration: none;
+          text-align: center;
+          white-space:nowrap;
+          font-size: .5rem;
+
+          &:hover{
+            //padding: .6784% .6784% .3914%;
+            background-color: rgba(255, 255, 255, .2);
+          }
         }
       }
     }

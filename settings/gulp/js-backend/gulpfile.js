@@ -17,12 +17,12 @@ const config = require( `${ projectRoot }/settings/gulp/js-backend/config` );
 gulp.task(
     'pre-build:js-backend',
     () => gulp.src( config.preBuild.src )
-        .pipe( rename(
-            ( file ) => {
-                file.extname = '';
-            }
-        ) )
-        .pipe( gulp.dest( config.preBuild.dest ) )
+    .pipe( rename(
+        ( file ) => {
+            file.extname = '';
+        }
+    ) )
+    .pipe( gulp.dest( config.preBuild.dest ) )
 );
 
 /**
@@ -39,14 +39,14 @@ gulp.task(
             since: gulp.lastRun( 'lint:js-backend' ),
         }
     )
-        .pipe( plumber() )
-        .pipe( eslint( {
-            configFile: config.lint.rule,
-            fix:        true,
-        } ) )
-        .pipe( eslint.format() )
-        .pipe( debug() )
-        .pipe( gulp.dest( config.lint.dest ) )
+    .pipe( plumber() )
+    .pipe( eslint( {
+        configFile: config.lint.rule,
+        fix:        true,
+    } ) )
+    .pipe( eslint.format() )
+    .pipe( debug() )
+    .pipe( gulp.dest( config.lint.dest ) )
 );
 
 /**
