@@ -9,11 +9,15 @@ mixin header()
     img.header__search( src='http://via.placeholder.com/500x500' )
     img.header__login( src='http://via.placeholder.com/500x500' )
 
-    nav.header__navigation-bar.navogation-bar
+    nav.header__navigation-bar.navogation-bar( tabindex='0' )
       ul.navigation-bar__dropdown.dropdown
+        img.navigation-bar__dropdown.dropdown__close( src='http://via.placeholder.com/500x500' )
+        img.navigation-bar__dropdown.dropdown__search( src='http://via.placeholder.com/500x500' )
         li.navigation-bar__dropdown.dropdown__navbar
+          img.navigation-bar__dropdown.dropdown__img( src='http://via.placeholder.com/500x500' )
           button.navigation-bar__dropdown.dropdown__btn 首頁
         li.navigation-bar__dropdown.dropdown__navbar
+          img.navigation-bar__dropdown.dropdown__img( src='http://via.placeholder.com/500x500' )
           button.navigation-bar__dropdown.dropdown__btn 關於本系
           nav.navigation-bar__dropdown.dropdown__list
             a.navigation-bar__dropdown.dropdown__item(href='/about/intro') 系所介紹
@@ -22,14 +26,16 @@ mixin header()
             a.navigation-bar__dropdown.dropdown__item(href='/about/honor') 榮譽事蹟
             a.navigation-bar__dropdown.dropdown__item(href='/about/location') 聯絡我們
         li.navigation-bar__dropdown.dropdown__navbar
+          img.navigation-bar__dropdown.dropdown__img( src='http://via.placeholder.com/500x500' )
           button.navigation-bar__dropdown.dropdown__btn 學術研究
-          nav.navigation-bar__dropdown.dropdown__list
+          nav.navigation-bar__dropdown.navigation-bar__dropdown.dropdown__list
             a.navigation-bar__dropdown.dropdown__item(href='/research/labs') 實驗室
             a.navigation-bar__dropdown.dropdown__item(href='/research/groups') 研究群
             a.navigation-bar__dropdown.dropdown__item(href='/research/publications') Publications
             a.navigation-bar__dropdown.dropdown__item(href='/research/awards') Awards
             a.navigation-bar__dropdown.dropdown__item(href='/research/conferences') 研討會
         li.navigation-bar__dropdown.dropdown__navbar
+          img.navigation-bar__dropdown.dropdown__img( src='http://via.placeholder.com/500x500' )
           button.navigation-bar__dropdown.dropdown__btn 學生事務
           nav.navigation-bar__dropdown.dropdown__list
             a.navigation-bar__dropdown.dropdown__item(href='/research/labs') 實驗室
@@ -38,6 +44,7 @@ mixin header()
             a.navigation-bar__dropdown.dropdown__item(href='/research/awards') Awards
             a.navigation-bar__dropdown.dropdown__item(href='/research/conferences') 研討會
         li.navigation-bar__dropdown.dropdown__navbar
+          img.navigation-bar__dropdown.dropdown__img( src='http://via.placeholder.com/500x500' )
           button.navigation-bar__dropdown.dropdown__btn 系所公告
           nav.navigation-bar__dropdown.dropdown__list
             a.navigation-bar__dropdown.dropdown__item(href='/announcement/all') 全部公告
@@ -46,6 +53,7 @@ mixin header()
             a.navigation-bar__dropdown.dropdown__item(href='/announcement/speech') 演講公告
             a.navigation-bar__dropdown.dropdown__item(href='/announcement/recruitment') 企業徵才
         li.navigation-bar__dropdown.dropdown__navbar
+          img.navigation-bar__dropdown.dropdown__img( src='http://via.placeholder.com/500x500' )
           button.navigation-bar__dropdown.dropdown__btn 資源連結
           nav.navigation-bar__dropdown.dropdown__list
             a.navigation-bar__dropdown.dropdown__item(href='/resource/law') 法規彙編
@@ -53,3 +61,5 @@ mixin header()
             a.navigation-bar__dropdown.dropdown__item(href='/resource/fix') 修繕登記
             a.navigation-bar__dropdown.dropdown__item(href='/resource/ieet') 工程認證
             a.navigation-bar__dropdown.dropdown__item(href='/resource/resources') 線上資源
+        img.navigation-bar__dropdown.dropdown__img( src='http://via.placeholder.com/500x500' )
+        button.navigation-bar__dropdown.dropdown__login 登入
