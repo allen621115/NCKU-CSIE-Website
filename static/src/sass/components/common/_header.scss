@@ -1,6 +1,7 @@
 @import 'components/common/font';
 @include font__load--NotoSansTC();
 @include font__load--NotoSans();
+@import 'components/common/icon';
 
 $header-pc-size: 480px;
 @mixin header-pc () {
@@ -30,7 +31,7 @@ $header-pc-size: 480px;
         rows: .3fr .2fr .2fr ;
         columns: .08fr .33fr .52fr .07fr .07fr ;
         areas: 
-          '. . . . header__language '
+          '. . . header__calendar header__language '
           'header__logo header__title-chinese header__navbar header__login header__search'
           'header__logo header__title-language header__navbar header__login header__search';
       }
@@ -42,17 +43,21 @@ $header-pc-size: 480px;
         margin-left: 11px;
         margin-right: 11px;
         border-radius: 50%;
-        height:45px;
-        width:51px;
+        left: -5px;
+        @include header__logo{
+          height:45px;
+          width:51px;
+        }
       @include header-pc() {
         display: grid;
         grid-area: header__logo;
         object-fit: contain;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        margin-left: .8rem;
-        margin-top: .2rem;
+        left: 60px;
+        top: 18px;
+        @include header__logo{
+          width: 60px;
+          height: 51px;
+        }
       }
     }
    
@@ -68,6 +73,8 @@ $header-pc-size: 480px;
           line-height: 2;
           letter-spacing: normal;
           @include header-pc() {
+            position: relative;
+            top: 22px;
             font-weight: normal;
             font-style: normal;
             font-stretch: normal;
@@ -93,6 +100,8 @@ $header-pc-size: 480px;
           line-height: 1;
           letter-spacing: normal;
           @include header-pc() {
+            position: relative;
+            top: 22px;
             @include font__family--NotoSans();
             grid-area: header__title-language;
             line-height: 1.5;
@@ -109,40 +118,72 @@ $header-pc-size: 480px;
         display: none;
       @include header-pc() {
         display: grid;
+        position: absolute;
+        top: 30px;
         grid-area: header__language;
-        margin-top: .5rem;
         background-color: #33325e ;
         border-radius: 50%;
-        margin-left: 1rem;
-        width: 20px;
-        height: 20px;
+        @include header__language() {
+          margin-left: 1rem;
+          width: 20px;
+          height: 20px;
+        }
       }
     }
+
+    &__calendar {
+      display: none;
+      @include header-pc() {
+        display: grid;
+        grid-area: header__calendar;
+        position: absolute;
+        top: 30px;
+        background-color: #ffffff;
+        @include header__calendar{
+          margin-left: 2rem;
+          width: 20px;
+          height: 20px;
+          background-repeat: no-repeat;
+        }
+      }
+  }
    
     &__search {
         display: none;
       @include header-pc() {
         display: grid;
         grid-area: header__search;
-        margin-top: .5rem;
-        margin-left: 1rem;
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
+        margin-top: 75px;
+        @include header__search{
+          margin-left: 1rem;
+          width: 26px;
+          height: 26px;
+        }
       }
     }
    
     &__login{
-        display: none;
+      display: none;
       @include header-pc() {
         display: grid;
+        position: relative;
         grid-area: header__login;
-        margin-top: .5rem;
-        background-color: #33325e ;
-        border-radius: 50%;
-        margin-left: 2rem;
-        width: 35px;
-        height: 35px;
+        margin-top: 70px;
+        width: 105px;
+        height: 36px;
+        background-color: #213262;
+        font-size: 14px;
+        padding: 8px 20px 8px 48px;
+        color: #ffffff;
+        &-img {
+          @include header__login{
+            position: absolute;
+            top:11.5px;
+            left: 19.5px;
+            width: 14px;
+            height: 14px;
+          }
+        }
       }
     }
 
@@ -151,10 +192,12 @@ $header-pc-size: 480px;
       display: inline-block;
       text-decoration: none;
       &-img{
-        width: 27px;
-        height:18px;
         position: relative;
-        top:20px;
+        top:27px;
+        @include header__navbtn-img{
+          width: 27px;
+          height:18px;
+        }
       }
       @include header-pc() {
         display: none;
@@ -230,6 +273,12 @@ $header-pc-size: 480px;
         overflow: hidden;
         display: block;
         height: 0;
+        opacity: 1;
+        top: -17px;
+        &:target {
+          opacity: 1;
+          top:-17px;
+        }
       }
     }
 
@@ -285,7 +334,7 @@ $header-pc-size: 480px;
         display: inline-block;
         text-decoration: none;
         border: .5px solid #ddd;        
-        padding: 10px 10px 10px 26px;
+        padding: 15px 14px 15px 14px;
         width: 100%;
         font-weight: normal;
         font-style: normal;
@@ -301,6 +350,7 @@ $header-pc-size: 480px;
         overflow: hidden;
         width: 100%;
         z-index: 1;
+        background-color: #1d2d56;
         color: white;
         transition: max-height 1s ease;
       }
@@ -309,7 +359,7 @@ $header-pc-size: 480px;
         display: block;
         margin-left: 150px;
         font-size: 16px;
-        background: #213262;
+        background-color: #1d2d56;
         width: 100%;
         padding-left: 20px;
         line-height: 30px;
@@ -383,6 +433,8 @@ $header-pc-size: 480px;
           @include font__family--NotoSansTC();
           width: 100%;
           height:54%;
+          padding: 15px 14px 15px 14px;
+          margin-bottom: 10px;
           font-weight: bold;
           font-style: normal;
           font-stretch: normal;
