@@ -149,13 +149,12 @@ $header-pc-size: 480px;
     &__navbtn{
       grid-area: header__navbar;
       display: inline-block;
-      background: #999;
-      width: 27px;
-      height:18px;
       text-decoration: none;
       &-img{
         width: 27px;
         height:18px;
+        position: relative;
+        top:20px;
       }
       @include header-pc() {
         display: none;
@@ -239,7 +238,7 @@ $header-pc-size: 480px;
       margin: 0 auto;
       max-height: 500px;
       list-style-type: none;
-      background-color:  #1d2d56;
+      background-color:  #213262;
       font-size: 16px;
       label {
         display: block;
@@ -310,7 +309,7 @@ $header-pc-size: 480px;
         display: block;
         margin-left: 150px;
         font-size: 16px;
-        background: #1d2d56;
+        background: #213262;
         width: 100%;
         padding-left: 20px;
         line-height: 30px;
@@ -430,7 +429,7 @@ $header-pc-size: 480px;
           list-style-type:none;
           width: 3000%;
           height: 81px;
-          background: #1d2d56;
+          background: #213262;
           white-space: nowrap;
           position: absolute;
           margin-left: -1500%;
@@ -471,7 +470,7 @@ $header-pc-size: 480px;
           height: 54px;
           padding: 13px;
           margin-left: 0;
-          background: #1d2d56;
+          background: #213262;
           margin-top: 13px;
           font-weight: bold;
           font-style: normal;
