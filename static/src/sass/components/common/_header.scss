@@ -275,11 +275,11 @@ $header-pc-size: 480px;
       }
 
       &__img{
-        width:30px;
-        height: 30px;
-        position: relative;
-        left:120px;
-        top:10px;
+        width:16px;
+        height: 16px;
+        position: absolute;
+        top:16px;
+        left: 5px;
       }
 
       &__btn-item{
