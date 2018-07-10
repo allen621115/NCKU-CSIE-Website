@@ -1,21 +1,23 @@
 mixin header()
   header.header
-    img.header__logo( src='http://via.placeholder.com/500x500' )
+    a.header__logo
     h1.header__title.header__title--chinese
       a( href='/' ) 成功大學資訊工程學系暨研究所
     h2.header__title.header__title--language
       a( href='/' )  Department of Computer Science and Information Engineering
-    img.header__language( src='http://via.placeholder.com/500x500' )
-    img.header__search( src='http://via.placeholder.com/500x500' )
-    img.header__login( src='http://via.placeholder.com/500x500' )
+    button.header__language
+    button.header__search
+    button.header__login login
+      a.header__login-img
+    button.header__calendar
 
     a.header__navbtn( href="#navbtn" )
-      img.header__navbtn-img( src='http://via.placeholder.com/500x500' )
+      button.header__navbtn-img
     nav#navbtn.header__navigation-bar
       a.header__navigation-bar__close(href="#")
       nav.header__navigation-bar__content
         ul.navigation-bar__dropdown.dropdown
-          input.navigation-bar__dropdown.dropdown__search search
+          input.navigation-bar__dropdown.dropdown__search( value='search' )
           li.navigation-bar__dropdown.dropdown__navbar
             a.navigation-bar__dropdown.dropdown__btn-item 首頁
           li.navigation-bar__dropdown.dropdown__navbar
