@@ -115,18 +115,79 @@ $header-pc-size: 480px;
     }
 
     &__language{
-        display: none;
+      display: none;
       @include header-pc() {
         display: grid;
         position: absolute;
         top: 30px;
+        right:107px;
         grid-area: header__language;
-        background-color: #33325e ;
-        border-radius: 50%;
-        @include header__language() {
-          margin-left: 1rem;
-          width: 20px;
-          height: 20px;
+        width: 20px;
+        height: 20px;
+        &:target {
+          max-height: 200px;
+        }
+        &-img{
+          border-radius: 50%;
+          @include header__language() {
+            width: 20px;
+            height: 20px;
+          }
+        }
+        &__nav {
+          display: none;
+          @include header-pc(){
+            display: block;
+            max-height: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: 1;
+            top:64px;
+            right: 107px;
+            width: 140px;
+            height:82px;
+            background-color: #1d2d56;
+            &-chinese{
+              font-size: 16px;
+              color: #ffffff;
+              position: absolute;
+              top: 9px;
+              left: 0px;
+              text-align: right;
+              width: 140px;
+              padding-right: 30px;
+              padding-bottom: 5px;
+              &-img{
+                position: absolute;
+                left: 33px;
+                top:4px;
+                @include header__language-chinese{
+                  width: 21px;
+                  height: 21px;
+                }
+              }
+            }
+            &-english{
+              font-size: 16px;
+              color: #ffffff;
+              bottom: 15px;
+              position: absolute;
+              left: 0px;
+              text-align: right;
+              width: 140px;
+              padding-right: 30px;
+              padding-top: 5px;
+              &-img{
+                position: absolute;
+                left: 33px;
+                bottom:-1px;
+                @include header__language-english{
+                  width: 21px;
+                  height: 21px;
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -138,9 +199,9 @@ $header-pc-size: 480px;
         grid-area: header__calendar;
         position: absolute;
         top: 30px;
+        right: 50px;
         background-color: #ffffff;
         @include header__calendar{
-          margin-left: 2rem;
           width: 20px;
           height: 20px;
           background-repeat: no-repeat;
@@ -154,8 +215,9 @@ $header-pc-size: 480px;
         display: grid;
         grid-area: header__search;
         margin-top: 75px;
+        position: absolute;
+        right:100px;
         @include header__search{
-          margin-left: 1rem;
           width: 26px;
           height: 26px;
         }
@@ -166,9 +228,10 @@ $header-pc-size: 480px;
       display: none;
       @include header-pc() {
         display: grid;
-        position: relative;
+        position: absolute;
         grid-area: header__login;
         margin-top: 70px;
+        right: 47px;
         width: 105px;
         height: 36px;
         background-color: #213262;
@@ -214,26 +277,23 @@ $header-pc-size: 480px;
       transition: opacity 0.5s ease-in-out;
 
       &__close {
-        display: block;
-        width: 17.5px;
-        height: 17.5px;
-        box-sizing: border-box;
-        color: #fff;
         position: absolute;
-        top: 23px;
-        right: 25px;
-        transition:.5s ease-in-out;
-        &:target{
-          color: #fff;
+        top:25px;
+        right: 30px;
+        z-index: 1;
+        @include navbar__close-img{
+          width: 17.5px;
+          height: 17.5px;
         }
-        &-img{
-          position: absolute;
-          top:25px;
-          right: 30px;
-          z-index: 1;
-          @include navbar__close-img{
-            width: 17.5px;
-            height: 17.5px;
+        &-link{
+          display: block;
+          width: 17.5px;
+          height: 17.5px;
+          box-sizing: border-box;
+          color: #fff;
+          transition:.5s ease-in-out;
+          &:target{
+            color: #fff;
           }
         }
       }
@@ -274,10 +334,6 @@ $header-pc-size: 480px;
         height: 0;
         opacity: 1;
         top: -17px;
-        &:target {
-          opacity: 1;
-          top:-17px;
-        }
       }
     }
 
@@ -310,13 +366,28 @@ $header-pc-size: 480px;
             z-index: 1;
             position: absolute;
           }
+          @include header-pc() {
+            display: none;
+          }
         }
       }
 
       &__navbar {
         position: relative;
         top:70px;
-        border-bottom: .5px solid rgba(255,255,255,0.5); 
+        border-bottom: .5px solid rgba(255,255,255,0.5);
+        &-img{
+          position: absolute;
+          top:17px;
+          right: 20px;
+          @include dropdown__navbar-imgright{
+            width: 10px;
+            height: 17px;
+          }
+          @include header-pc() {
+            display: none;
+          }
+        }
       }
 
       &__home{
@@ -333,6 +404,12 @@ $header-pc-size: 480px;
           ~ {
             .navigation-bar__dropdown.dropdown__list{
               max-height: 500px;
+            }
+            .navigation-bar__dropdown.dropdown__navbar-img{
+              @include dropdown__navbar-imgdown{
+                width: 17px;
+                height: 10px;
+              }
             }
           }
         }
@@ -394,6 +471,12 @@ $header-pc-size: 480px;
           position: absolute;
           top:16px;
           left: 5px;
+          @include header-pc() {
+            display: none;
+          }
+        }
+        @include header-pc() {
+          display: none;
         }
       }
 
@@ -411,6 +494,12 @@ $header-pc-size: 480px;
           position: absolute;
           top:16px;
           left: 5px;
+          @include header-pc() {
+            display: none;
+          }
+        }
+        @include header-pc() {
+          display: none;
         }
       }
 
@@ -428,6 +517,12 @@ $header-pc-size: 480px;
           position: absolute;
           top:16px;
           left: 5px;
+          @include header-pc() {
+            display: none;
+          }
+        }
+        @include header-pc() {
+          display: none;
         }
       }
 
