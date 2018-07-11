@@ -14,10 +14,13 @@ mixin header()
     a.header__navbtn( href="#navbtn" )
       button.header__navbtn-img
     nav#navbtn.header__navigation-bar
-      a.header__navigation-bar__close(href="#")
+      button.header__navigation-bar__close-img
+        a.header__navigation-bar__close( href="#close" )
       nav.header__navigation-bar__content
         ul.navigation-bar__dropdown.dropdown
+          button.navigation-bar__dropdown.dropdown__search-img
           input.navigation-bar__dropdown.dropdown__search( value='search' )
+          li#close.navigation-bar__dropdown.dropdown__home
           li.navigation-bar__dropdown.dropdown__navbar
             a.navigation-bar__dropdown.dropdown__btn-item 首頁
           li.navigation-bar__dropdown.dropdown__navbar
@@ -71,11 +74,11 @@ mixin header()
               a.navigation-bar__dropdown.dropdown__item(href='/resource/ieet') 工程認證
               a.navigation-bar__dropdown.dropdown__item(href='/resource/resources') 線上資源
           li.navigation-bar__dropdown.dropdown__navbar
-            img.navigation-bar__dropdown.dropdown__img( src='http://via.placeholder.com/500x500' )
+            button.navigation-bar__dropdown.dropdown__login-img
             a.navigation-bar__dropdown.dropdown__login 登入
           li.navigation-bar__dropdown.dropdown__navbar
-            img.navigation-bar__dropdown.dropdown__img( src='http://via.placeholder.com/500x500' )
+            button.navigation-bar__dropdown.dropdown__calendar-img
             a.navigation-bar__dropdown.dropdown__calendar 行事曆
           li.navigation-bar__dropdown.dropdown__navbar
-            img.navigation-bar__dropdown.dropdown__img( src='http://via.placeholder.com/500x500' )
+            button.navigation-bar__dropdown.dropdown__language-img
             a.navigation-bar__dropdown.dropdown__language 語言
