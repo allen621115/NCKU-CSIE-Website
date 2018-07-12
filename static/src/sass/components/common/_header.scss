@@ -116,76 +116,71 @@ $header-pc-size: 480px;
 
     &__language{
       display: none;
+      &__nav {
+        display: none;
+      }
       @include header-pc() {
         display: grid;
         position: absolute;
-        top: 30px;
+        top: 26px;
         right:107px;
         grid-area: header__language;
-        width: 20px;
-        height: 20px;
-        &:target {
-          max-height: 200px;
+        border-radius: 50%;
+        label{
+          display: block;
         }
-        &-img{
-          border-radius: 50%;
-          @include header__language() {
-            width: 20px;
-            height: 20px;
-          }
-        }
-        &__nav {
-          display: none;
-          @include header-pc(){
-            display: block;
-            max-height: 0;
-            overflow: hidden;
-            position: absolute;
-            z-index: 1;
-            top:64px;
-            right: 107px;
-            width: 140px;
-            height:82px;
-            background-color: #1d2d56;
-            &-chinese{
-              font-size: 16px;
-              color: #ffffff;
-              position: absolute;
-              top: 9px;
-              left: 0px;
-              text-align: right;
-              width: 140px;
-              padding-right: 30px;
-              padding-bottom: 5px;
-              &-img{
-                position: absolute;
-                left: 33px;
-                top:4px;
-                @include header__language-chinese{
-                  width: 21px;
-                  height: 21px;
-                }
+        &__btn{
+          position: absolute;
+          top: -100px;
+          right: -100px;
+          &:checked {
+            ~ {
+              .header__language__nav{
+                max-height: 100px;
               }
             }
-            &-english{
+          }
+        }
+
+        &-img{
+          width:21px;
+          height:21px;
+        }
+        &__nav {
+          display: block;
+          max-height: 0;
+          overflow: hidden;
+          position: absolute;
+          z-index: 1;
+          top:34px;
+          right: -2px;
+          width: 140px;
+          height:82px;
+          background-color: #1d2d56;
+
+          &-img{
+            width: 21px;
+            height: 21px;
+            vertical-align: middle;
+            margin-right: 15px;
+            margin-top:3px;
+          }
+          &-chinese{
+            background-color: #1d2d56;
+            width:100%;
+            height: 50%;
+            &-link{
               font-size: 16px;
               color: #ffffff;
-              bottom: 15px;
-              position: absolute;
-              left: 0px;
-              text-align: right;
-              width: 140px;
-              padding-right: 30px;
-              padding-top: 5px;
-              &-img{
-                position: absolute;
-                left: 33px;
-                bottom:-1px;
-                @include header__language-english{
-                  width: 21px;
-                  height: 21px;
-                }
-              }
+            }
+          }
+          &-english{
+            background-color: #1d2d56;
+            width:100%;
+            height: 50%;
+            &-link{
+              font-size: 16px;
+              color: #ffffff;
             }
           }
         }
@@ -531,6 +526,7 @@ $header-pc-size: 480px;
         background-color:rgba(0,0,0,0);
         position: fixed;
         width: 100%;
+        height:0;
         left:44.375%;
         font-weight: bold;
         font-style: normal;
@@ -549,6 +545,7 @@ $header-pc-size: 480px;
           display: inline-block;
           height: 80px;
           width: 6.002%;
+          border:none;
 
           &:hover {
             .navigation-bar__dropdown.dropdown__list {

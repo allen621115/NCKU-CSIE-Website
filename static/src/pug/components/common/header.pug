@@ -5,13 +5,17 @@ mixin header()
       a( href='/' ) 成功大學資訊工程學系暨研究所
     h2.header__title.header__title--language
       a( href='/' )  Department of Computer Science and Information Engineering
-    a.header__language( href="#languagenav" )
-      button.header__language-img
-    nav#languagenav.header__language__nav
-      a.header__language__nav-chinese 台灣
-        button.header__language__nav-chinese-img
-      a.header__language__nav-english USA
-        button.header__language__nav-english-img
+    nav.header__language
+      input#language.header__language__btn(type="checkbox")
+      label(for="language")
+        img.header__language-img(src="/image/taiwan.png")
+      nav.header__language__nav
+        button.header__language__nav-chinese
+          img.header__language__nav-img(src="/image/taiwan.png")
+          a.header__language__nav-chinese-link( href='#' ) 台灣
+        button.header__language__nav-english
+          img.header__language__nav-img(src="/image/USA.png")
+          a.header__language__nav-english-link( href='#' ) USA
     button.header__search
     button.header__login 登入 
       a.header__login-img
@@ -28,7 +32,9 @@ mixin header()
           input.navigation-bar__dropdown.dropdown__search( value='search' )
           li#close.navigation-bar__dropdown.dropdown__home
           li.navigation-bar__dropdown.dropdown__navbar
-            a.navigation-bar__dropdown.dropdown__btn-item 首頁
+            input#home.navigation-bar__dropdown.dropdown__btn(type="checkbox")
+            label(for="home")
+              a.navigation-bar__dropdown.dropdown__btn-item 首頁
           li.navigation-bar__dropdown.dropdown__navbar
             input#about.navigation-bar__dropdown.dropdown__btn(type="checkbox")
             label(for="about")
@@ -57,11 +63,11 @@ mixin header()
               a.navigation-bar__dropdown.dropdown__btn-item 學生事務
             button.navigation-bar__dropdown.dropdown__navbar-img
             nav.navigation-bar__dropdown.dropdown__list
-              a.navigation-bar__dropdown.dropdown__item(href='/research/labs') 實驗室
-              a.navigation-bar__dropdown.dropdown__item(href='/research/groups') 研究群
-              a.navigation-bar__dropdown.dropdown__item(href='/research/publications') Publications
-              a.navigation-bar__dropdown.dropdown__item(href='/research/awards') Awards
-              a.navigation-bar__dropdown.dropdown__item(href='/research/conferences') 研討會
+              a.navigation-bar__dropdown.dropdown__item(href='student/college') 大學部
+              a.navigation-bar__dropdown.dropdown__item(href='student/master') 研究所
+              a.navigation-bar__dropdown.dropdown__item(href='student/phd') 博士生
+              a.navigation-bar__dropdown.dropdown__item(href='student/scholarship') 獎學金
+              a.navigation-bar__dropdown.dropdown__item(href='student/international') 國際交流
           li.navigation-bar__dropdown.dropdown__navbar
             input#announcement.navigation-bar__dropdown.dropdown__btn(type="checkbox")
             label(for="announcement")
