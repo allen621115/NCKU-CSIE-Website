@@ -54,7 +54,7 @@ $header-pc-size: 480px;
         grid-area: header__logo;
         object-fit: contain;
         left: 60px;
-        top: 18px;
+        top: 39px;
         @include header__logo{
           width: 60px;
           height: 51px;
@@ -419,7 +419,9 @@ $header-pc-size: 480px;
       background-color:  #213262;
       font-size: 16px;
       label {
-        display: block;
+        display: inline-block;
+        height: 100%;
+        width: 67%;
       }
 
       &__search{
@@ -450,6 +452,18 @@ $header-pc-size: 480px;
         position: relative;
         top:70px;
         border-bottom: .5px solid rgba(255,255,255,0.5);
+        &-item{
+          display: inline-block;
+          text-decoration: none;       
+          padding: 15px 14px 15px 14px;
+          font-weight: normal;
+          font-style: normal;
+          font-stretch: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          color: rgba(255, 255, 255, 0.5);
+          margin-left: 15px;
+        }
         &-img{
           position: absolute;
           top:17px;
@@ -638,6 +652,9 @@ $header-pc-size: 480px;
         letter-spacing: normal;
         color: #adacad;
         font-size: .5rem;
+        label{
+          display: none;
+        }
       
         li{
           float:left ;
@@ -648,36 +665,38 @@ $header-pc-size: 480px;
           display: inline-block;
           height: 80px;
           width: 6.002%;
+          right: 89px;
+          top:61px;
           border:none;
+
+          &-item {
+            @include font__family--NotoSansTC();
+            width: 100%;
+            height:54%;
+            padding: 15px 14px 40px 14px;
+            margin-bottom: 17px;
+            font-weight: bold;
+            font-style: normal;
+            font-stretch: normal;
+            line-height: 1.5;
+            letter-spacing: normal;
+            font-size: .5rem;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            color: #adacad;
+            background-color: #ffffff ;
+            border: 0;
+  
+            &:hover {
+              background-color:rgba(196, 196, 196, .3);
+            }
+          }
 
           &:hover {
             .navigation-bar__dropdown.dropdown__list {
               display:block ;
             }
-          }
-        }
-
-        &__btn-item {
-          @include font__family--NotoSansTC();
-          width: 100%;
-          height:54%;
-          padding: 15px 14px 15px 14px;
-          margin-bottom: 10px;
-          font-weight: bold;
-          font-style: normal;
-          font-stretch: normal;
-          line-height: 1.5;
-          letter-spacing: normal;
-          font-size: .5rem;
-          text-align: center;
-          text-decoration: none;
-          display: inline-block;
-          color: #adacad;
-          background-color: #ffffff ;
-          border: 0;
-
-          &:hover {
-            background-color:rgba(196, 196, 196, .3);
           }
         }
 

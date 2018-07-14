@@ -12,10 +12,10 @@ mixin header()
       nav.header__language__nav
         button.header__language__nav-chinese
           img.header__language__nav-img(src="/image/taiwan.png")
-          a.header__language__nav-chinese-link( href='#' ) 台灣
+          a.header__language__nav-chinese-link( href='/' ) 台灣
         button.header__language__nav-english
           img.header__language__nav-img(src="/image/USA.png")
-          a.header__language__nav-english-link( href='#' ) USA
+          a.header__language__nav-english-link( href='/' ) USA
     nav.header__search
       a( href='#searchbar' )
         img.header__search-img( src="/image/search.png" )
@@ -38,13 +38,15 @@ mixin header()
           input.navigation-bar__dropdown.dropdown__search( placeholder='search' )
           li#close.navigation-bar__dropdown.dropdown__home
           li.navigation-bar__dropdown.dropdown__navbar
+            a.navigation-bar__dropdown.dropdown__navbar-item(href="/") 首頁
             input#home.navigation-bar__dropdown.dropdown__btn(type="checkbox")
             label(for="home")
-              a.navigation-bar__dropdown.dropdown__btn-item 首頁
+              a.navigation-bar__dropdown.dropdown__btn-item
           li.navigation-bar__dropdown.dropdown__navbar
+            a.navigation-bar__dropdown.dropdown__navbar-item(href="/") 關於本系
             input#about.navigation-bar__dropdown.dropdown__btn(type="checkbox")
             label(for="about")
-              a.navigation-bar__dropdown.dropdown__btn-item 關於本系
+              a.navigation-bar__dropdown.dropdown__btn-item
             button.navigation-bar__dropdown.dropdown__navbar-img
             nav.navigation-bar__dropdown.dropdown__list
               a.navigation-bar__dropdown.dropdown__item(href='/about/intro') 系所介紹
@@ -53,9 +55,10 @@ mixin header()
               a.navigation-bar__dropdown.dropdown__item(href='/about/honor') 榮譽事蹟
               a.navigation-bar__dropdown.dropdown__item(href='/about/location') 聯絡我們
           li.navigation-bar__dropdown.dropdown__navbar
+            a.navigation-bar__dropdown.dropdown__navbar-item(href="/") 學術研究
             input#research.navigation-bar__dropdown.dropdown__btn(type="checkbox")
             label(for="research")
-              a.navigation-bar__dropdown.dropdown__btn-item 學術研究
+              a.navigation-bar__dropdown.dropdown__btn-item
             button.navigation-bar__dropdown.dropdown__navbar-img
             nav.navigation-bar__dropdown.navigation-bar__dropdown.dropdown__list
               a.navigation-bar__dropdown.dropdown__item(href='/research/labs') 實驗室
@@ -64,9 +67,10 @@ mixin header()
               a.navigation-bar__dropdown.dropdown__item(href='/research/awards') Awards
               a.navigation-bar__dropdown.dropdown__item(href='/research/conferences') 研討會
           li.navigation-bar__dropdown.dropdown__navbar
+            a.navigation-bar__dropdown.dropdown__navbar-item(href="/") 學生事務
             input#student.navigation-bar__dropdown.dropdown__btn(type="checkbox")
             label(for="student")
-              a.navigation-bar__dropdown.dropdown__btn-item 學生事務
+              a.navigation-bar__dropdown.dropdown__btn-item
             button.navigation-bar__dropdown.dropdown__navbar-img
             nav.navigation-bar__dropdown.dropdown__list
               a.navigation-bar__dropdown.dropdown__item(href='student/college') 大學部
@@ -75,9 +79,10 @@ mixin header()
               a.navigation-bar__dropdown.dropdown__item(href='student/scholarship') 獎學金
               a.navigation-bar__dropdown.dropdown__item(href='student/international') 國際交流
           li.navigation-bar__dropdown.dropdown__navbar
+            a.navigation-bar__dropdown.dropdown__navbar-item(href="/") 系所公告
             input#announcement.navigation-bar__dropdown.dropdown__btn(type="checkbox")
             label(for="announcement")
-              a.navigation-bar__dropdown.dropdown__btn-item 系所公告
+              a.navigation-bar__dropdown.dropdown__btn-item
             button.navigation-bar__dropdown.dropdown__navbar-img
             nav.navigation-bar__dropdown.dropdown__list
               a.navigation-bar__dropdown.dropdown__item(href='/announcement/all') 全部公告
@@ -86,9 +91,10 @@ mixin header()
               a.navigation-bar__dropdown.dropdown__item(href='/announcement/speech') 演講公告
               a.navigation-bar__dropdown.dropdown__item(href='/announcement/recruitment') 企業徵才
           li.navigation-bar__dropdown.dropdown__navbar
+            a.navigation-bar__dropdown.dropdown__navbar-item(href="/") 資源連結
             input#resources.navigation-bar__dropdown.dropdown__btn(type="checkbox")
             label(for="resources")
-              a.navigation-bar__dropdown.dropdown__btn-item 資源連結
+              a.navigation-bar__dropdown.dropdown__btn-item
             button.navigation-bar__dropdown.dropdown__navbar-img
             nav.navigation-bar__dropdown.dropdown__list
               a.navigation-bar__dropdown.dropdown__item(href='/resource/law') 法規彙編
