@@ -16,7 +16,13 @@ mixin header()
         button.header__language__nav-english
           img.header__language__nav-img(src="/image/USA.png")
           a.header__language__nav-english-link( href='#' ) USA
-    button.header__search
+    nav.header__search
+      a( href='#searchbar' )
+        img.header__search-img( src="/image/search.png" )
+      nav#searchbar.header__search-searchbar
+        input.header__search-searchbar-search( placeholder='search' )
+        a.header__search-searchbar-close( href="#close" )
+          img.header__search-searchbar-close-img( src='/image/close-black.png' )
     button.header__login 登入 
       a.header__login-img
     button.header__calendar
@@ -29,7 +35,7 @@ mixin header()
       nav.header__navigation-bar__content
         ul.navigation-bar__dropdown.dropdown
           button.navigation-bar__dropdown.dropdown__search-img
-          input.navigation-bar__dropdown.dropdown__search( value='search' )
+          input.navigation-bar__dropdown.dropdown__search( placeholder='search' )
           li#close.navigation-bar__dropdown.dropdown__home
           li.navigation-bar__dropdown.dropdown__navbar
             input#home.navigation-bar__dropdown.dropdown__btn(type="checkbox")
@@ -90,12 +96,12 @@ mixin header()
               a.navigation-bar__dropdown.dropdown__item(href='/resource/fix') 修繕登記
               a.navigation-bar__dropdown.dropdown__item(href='/resource/ieet') 工程認證
               a.navigation-bar__dropdown.dropdown__item(href='/resource/resources') 線上資源
-          li.navigation-bar__dropdown.dropdown__navbar
-            button.navigation-bar__dropdown.dropdown__login-img
-            a.navigation-bar__dropdown.dropdown__login 登入
-          li.navigation-bar__dropdown.dropdown__navbar
-            button.navigation-bar__dropdown.dropdown__calendar-img
-            a.navigation-bar__dropdown.dropdown__calendar 行事曆
-          li.navigation-bar__dropdown.dropdown__navbar
-            button.navigation-bar__dropdown.dropdown__language-img
-            a.navigation-bar__dropdown.dropdown__language 語言
+          li.navigation-bar__dropdown.dropdown__navbar__login
+            img.navigation-bar__dropdown.dropdown__navbar__login-img(src="/image/user.png")
+            a.navigation-bar__dropdown.dropdown__navbar__login-link 登入
+          li.navigation-bar__dropdown.dropdown__navbar__calendar
+            img.navigation-bar__dropdown.dropdown__navbar__calendar-img(src="/image/calendar-white.png")
+            a.navigation-bar__dropdown.dropdown__navbar__login-link 行事曆
+          li.navigation-bar__dropdown.dropdown__navbar__language
+            img.navigation-bar__dropdown.dropdown__navbar__language-img( src="/image/taiwan.png" )
+            a.navigation-bar__dropdown.dropdown__navbar__login-link 語言
